@@ -1,0 +1,489 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Source Code Pro', monospace;
+    background-color: #121212;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, li, button {
+    font-family: 'Source Code Pro', monospace;
+}
+
+/* Container principale */
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+/* Elementi fissi */
+.logo {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.menu {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 1000;
+}
+
+/* Menu verticale */
+.menu ul {
+    display: flex;
+    flex-direction: column; /* Disposizione verticale */
+    gap: 10px; /* Spaziatura tra i link */
+    text-align: right; /* Allineamento a destra */
+    list-style: none; /* Rimuove i puntini */
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: #F1F1EC; /* Colore bianco per le icone */
+    font-size: 1rem; /* Dimensione delle icone */
+    font-weight: bold; /* Testo in grassetto */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    text-transform: uppercase; /* Testo maiuscolo */
+    letter-spacing: 2px; /* Distanza tra le lettere */
+    transition: color 0.3s, transform 0.3s, opacity 0.3s ease; /* Effetti al passaggio del mouse */
+    display: inline-block;  /* Aggiungi questa riga */
+}
+
+.menu li a:hover {
+    transform: scale(1.5); /* Effetto di ingrandimento */
+    color: #5A4FCF; /* Colore bianco per le icone */
+}
+
+/* Contatti con icone */
+.contacts {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    display: flex;
+    flex-direction: column; /* Disposizione verticale */
+    gap: 15px; /* Spaziatura tra le icone */
+    z-index: 1000;
+}
+
+.contacts a {
+    color: #F1F1EC; /* Colore bianco per le icone */
+    font-size: 1.5rem; /* Dimensione delle icone */
+    text-decoration: none; /* Nessuna sottolineatura */
+    transition: color 0.3s, transform 0.3s; /* Effetti al passaggio del mouse */
+}
+
+.contacts a:hover {
+    transform: scale(1.5); /* Effetto di ingrandimento */
+    color: #5A4FCF; /* Colore bianco per le icone */
+}
+
+
+
+
+
+/* Sezione Hero (scritta grande al centro) */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altezza piena della pagina */
+
+    padding: 0 var(--section-padding); /* Padding laterale uniforme */
+    background-color: #121212;
+    background-size: cover;
+    animation: parallax 10s infinite linear;
+    
+}
+
+.hero-content {  
+    display: inline-block;
+    word-wrap: break-word; /* Permette di andare a capo */
+    white-space: normal; /* Assicura che non rimanga su una riga sola */
+    text-align: center; /* Se vuoi centrare il testo */
+}
+
+.hero-name {
+    font-size: clamp(0.5rem, 2vw, 1.5rem); /* La dimensione minima è 4rem, con una dimensione ideale 10vw (più grande) */
+    color: #F1F1EC;
+    
+}
+
+h1.hero-title {
+    font-size: clamp(0.5rem, 2vw, 1.5rem); /* La dimensione minima è 4rem, con una dimensione ideale 10vw (più grande) */
+    color: #F1F1EC;
+    position: relative;    
+}
+
+h1.hero-title span {
+    color: #5A4FCF;
+    position: relative;   
+    font-size: clamp(1.6rem, 9vw, 6rem); /* La dimensione minima è 4rem, con una dimensione ideale 10vw (più grande) */
+    vertical-align: middle; /* Allinea verticalmente rispetto al testo adiacente */
+}
+
+/*
+h1.hero-title span::before {
+    content: "";
+    right: -8px;
+    top: 50%;
+    position: absolute;
+    height: clamp(1.6rem, 9vw, 6rem);
+    width: 2px;
+    background: #5A4FCF;
+    transform: translateY(-45%);
+    animation: blink 0.7s infinite;
+}
+
+h1.hero-title span.stop-blinking::before {
+    animation: none;
+}
+
+@keyframes blink {
+    50% { opacity: 0 }
+}
+*/
+
+/* Variabili globali */
+:root {
+    --card-width: clamp(225px, 30vw, 275px); /* Dimensioni adattive per le card */
+    --card-padding: clamp(0.8em, 1.5vw, 1.5em); /* Padding adattivo */
+    --min-card-height: 200px; /* Altezza minima adattabile */
+}
+
+/* About Section */
+.about {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%; /* Occupa tutta la larghezza disponibile */
+    padding-left: 120px; /* Aggiungi padding solo a destra */
+    padding-right: 120px; /* Aggiungi padding solo a destra */
+    box-sizing: border-box;
+}
+
+.about-title {
+    display: block;
+    font-size: clamp(10px, 3vw + 1rem, 14px); 
+    margin-bottom: 20px; 
+    color: #5A4FCF;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;  
+}
+
+.about-text {
+    font-size: clamp(15px, 2vw + 1rem, 40px); 
+    margin: 0 auto;
+    color: #F1F1EC;
+}
+
+.skill-title {
+    display: block;
+    font-size: clamp(10px, 3vw + 1rem, 14px); 
+    margin-bottom: 20px; 
+    color: #5A4FCF;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px; 
+}
+
+.skill-text {
+    font-size: clamp(15px, 2vw + 1rem, 40px); 
+    margin: 0 auto;
+    color: #F1F1EC;
+}
+
+/* Contenitore principale della card */
+.card {
+    display: flex;
+    justify-content: space-between; /* Distanza tra i due contenuti */
+    align-items: center; /* Centra verticalmente */
+    background: #0D0D0D;
+    color: #F1F1EC;
+    border-radius: 10px;
+    position: relative;
+    text-align: left; /* Allinea il testo a sinistra */
+    padding: 25px; /* Aggiungi più spazio interno */
+    margin: 0 auto; /* Centra la card orizzontalmente */
+    margin-top: 100px;
+    margin-bottom: 100px;
+    flex-wrap: wrap; /* Permette agli elementi di andare a capo su schermi piccoli */
+    width: 100%; /* Aumenta la larghezza della card */
+}
+
+
+/* Stile delle immagini */
+.card img {
+    width: clamp(70px, 10vw, 120px); /* Immagine leggermente più piccola */
+    height: clamp(70px, 10vw, 120px); /* Immagine leggermente più piccola */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: clamp(15px, 2.5vw, 30px); /* Spazio tra immagine e testo */
+    filter: invert(36%) sepia(65%) saturate(600%) hue-rotate(210deg);
+}
+
+/* Contenitore per il testo (le skills) */
+.card-content {
+    display: flex;
+    flex-direction: column; /* Allinea gli span in colonna */
+    align-items: center; /* Centra orizzontalmente */
+    justify-content: center; /* Centra verticalmente */
+    text-align: center;
+    gap: 10px; /* Spazio tra gli span */
+    flex: 1; /* Occupare lo spazio disponibile */
+}
+
+/* Skills (elenco delle competenze) */
+.skills {
+    display: flex;
+    flex-direction: row; /* Allinea le parole in orizzontale */
+    flex-wrap: wrap; /* Permette la disposizione su più righe su schermi piccoli */
+    justify-content: center; /* Centra orizzontalmente */
+    gap: 10px; /* Spazio tra gli span */
+    font-size: clamp(12px, 1.5vw, 18px); /* Testo che si adatta alla dimensione dello schermo */
+}
+
+/* Testo della card (competenza) */
+.card-content span {
+    margin-right: 15px; /* Spazio tra le competenze */
+}
+
+/* Aggiungi barra verticale tra le competenze */
+.card-content span:not(:last-child)::after {
+    content: "|";
+    margin-left: 15px;
+    color: #5A4FCF;
+}
+
+/* Animazione per la Card */
+.card::after,
+.card::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), #F1F1EC, #5A4FCF);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 2px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+.card::before {
+    filter: blur(1rem);
+    opacity: 0.5;
+}
+
+/* Animazione Spin */
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+/*SKILLS*/
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+/*PROJECTS*/
+
+/* Griglia dei progetti */
+.projects-grid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(clamp(200px, 25vw, 400px), 1fr)); /* Colonne dinamiche */
+    grid-template-columns: 1fr 1fr; /* Due colonne di larghezza uguale */
+    grid-auto-rows: clamp(420px, 30vh, 540px); /* Altezza dinamica per i progetti */
+    gap: 40px; /* Spaziatura tra gli elementi */
+    padding: 160px 120px; /* Padding interno (20px laterale e 120px sopra/sotto) */
+    box-sizing: border-box; /* Include il padding nella larghezza/altezza */
+}
+
+/* Singolo progetto */
+.project-item {
+    position: relative; /* Necessario per posizionare gli elementi interni */
+    overflow: hidden; /* Nasconde il contenuto che esce fuori */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212; /* Sfondo scuro per i progetti */
+    border: 2px solid #5A4FCF; /* Bordo sottile per separare gli elementi */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+/* Immagine all'interno del progetto */
+.project-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'immagine si adatta al contenitore */
+    z-index: 1; /* L'immagine sta sotto il testo */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Stile per la data del progetto */
+.project-date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #F1F1EC;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Modifica il nome del progetto per separarlo visivamente */
+.project-name {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #F1F1EC;
+    background-color: #121212;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+}
+
+/* Effetto hover sull'elemento */
+.project-item:hover {
+    border: 2px solid #121212; /* Bordo sottile per separare gli elementi */
+    transform: scale(1.05); /* Leggera animazione di ingrandimento */
+}
+
+/* Effetto hover sull'immagine */
+.project-item:hover img {
+    transform: scale(1.1); /* Leggero zoom sull'immagine */
+    filter: brightness(0.7); /* Oscura leggermente l'immagine */
+}
+
+/* Mostra il nome del progetto al passaggio del mouse */
+.project-item:hover .project-name {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media Query per schermi tra 1024px e 1280px */
+@media screen and (max-width: 1024px){
+    .projects-grid {
+        grid-template-columns: 1fr; /* Una sola colonna su schermi più piccoli */
+        padding: 120px 25px; /* Mantenere il padding verticale di 120px */
+        grid-auto-rows: clamp(250px, 25vh, 300px); /* Altezza dinamica per i progetti */
+    }
+
+    .cards-container {
+        gap: 6rem; /* Spazio tra le card */
+    }
+
+}
+
+/* Media Query per schermi più piccoli (mobile) */
+@media screen and (max-width: 600px) {
+    .about {
+        padding: 20px;  /* Aggiunge padding per schermi più piccoli */
+    }
+
+    .card {
+        flex-direction: column; /* Disporre gli elementi in colonna sui dispositivi mobili */
+        align-items: center; /* Centra tutto orizzontalmente */
+    }
+
+    .card-content {
+        align-items: center; /* Centra anche il contenuto della card in colonna */
+        text-align: center;
+        margin-top: 25px;
+    }
+}
+
+@media (hover: none) and (pointer: coarse)
+{  
+    /* Elementi fissi */
+    .logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+    }   
+  
+    .menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+  
+    /* Contatti con icone */
+    .contacts {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        display: flex;
+        flex-direction: column; /* Disposizione verticale */
+        gap: 15px; /* Spaziatura tra le icone */
+        z-index: 1000;
+    }
+
+    .menu a:hover, 
+    .contacts a:hover, 
+    .circle:hover {
+        /* Imposta gli effetti hover a loro stato normale */
+        color: inherit;         /* Rimuove il cambio di colore */
+        transform: none;        /* Disabilita eventuali effetti di trasformazione */
+        /* Aggiungi altre regole che rimuovono l'effetto hover */
+    }
+
+    /* Rimuove l'effetto hover sull'intero progetto */
+    .project-item:hover {
+        transform: none; /* Rimuove l'animazione di ingrandimento */
+        border: 2px solid #5A4FCF; /* Ripristina il bordo normale */
+    }
+
+    /* Rimuove l'effetto hover sull'immagine */
+    .project-item:hover img {
+        transform: none; /* Rimuove lo zoom sull'immagine */
+        filter: none; /* Rimuove l'effetto di luminosità */
+    }
+
+    /* Rimuove l'effetto hover sul nome del progetto */
+    .project-item:hover .project-name {
+        opacity: 0; /* Nasconde il testo */
+        transform: translateY(20px); /* Ripristina la posizione iniziale del testo */
+    }
+}
+    
