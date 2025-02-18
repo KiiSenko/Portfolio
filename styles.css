@@ -234,7 +234,6 @@ h1.hero-title span.stop-blinking::before {
     height: clamp(70px, 10vw, 120px); /* Immagine leggermente più piccola */
     object-fit: cover;
     border-radius: 10px;
-    margin-right: clamp(15px, 2.5vw, 30px); /* Spazio tra immagine e testo */
     filter: invert(36%) sepia(65%) saturate(600%) hue-rotate(210deg);
 }
 
@@ -430,6 +429,14 @@ h1.hero-title span.stop-blinking::before {
         margin-top: 25px;
         margin-bottom: 25px;
     }
+
+    .card-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    
 }
 
 @media (hover: none), (any-pointer: coarse)
