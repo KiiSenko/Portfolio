@@ -428,10 +428,11 @@ h1.hero-title span.stop-blinking::before {
         align-items: center; /* Centra anche il contenuto della card in colonna */
         text-align: center;
         margin-top: 25px;
+        margin-bottom: 25px;
     }
 }
 
-@media (hover: none) and (pointer: coarse)
+@media (hover: none), (any-pointer: coarse)
 {  
     /* Elementi fissi */
     .logo {
@@ -460,10 +461,9 @@ h1.hero-title span.stop-blinking::before {
     }
 
     .menu a:hover, 
-    .contacts a:hover, 
-    .circle:hover {
+    .contacts a:hover{
         /* Imposta gli effetti hover a loro stato normale */
-        color: inherit;         /* Rimuove il cambio di colore */
+        color: #F1F1EC;;         /* Rimuove il cambio di colore */
         transform: none;        /* Disabilita eventuali effetti di trasformazione */
         /* Aggiungi altre regole che rimuovono l'effetto hover */
     }
